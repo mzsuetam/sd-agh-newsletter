@@ -9,4 +9,14 @@ wheels/
 # Virtual environments
 .venv
 
+# Secrets & local config -- NEVER commit these
 .env
+.env.*
+!.env.example
+
+# Local runtime data (SQLite DB, previews, logs)
+/data/
+*.db
+*.db-wal
+*.db-shm
+*.eml

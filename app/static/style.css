@@ -1,0 +1,87 @@
+:root {
+  --bg: #f4f4f5;
+  --card: #ffffff;
+  --ink: #1f2328;
+  --muted: #6b7280;
+  --accent: #7a1f1f;   /* AGH-ish deep red */
+  --accent-hover: #5e1616;
+  --line: #e5e7eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.card {
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.05);
+}
+
+header h1 { margin: 0 0 6px; font-size: 24px; line-height: 1.25; }
+.subtitle { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+.subtitle a { color: var(--accent); }
+
+.form { display: flex; flex-direction: column; gap: 10px; }
+
+label { font-weight: 600; font-size: 14px; }
+
+input[type="email"], input[type="text"] {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+}
+
+input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+button {
+  margin-top: 6px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { background: var(--accent-hover); }
+button.danger { background: #b3261e; }
+button.danger:hover { background: #901c16; }
+
+.hint { color: var(--muted); font-size: 13px; margin: 4px 0 0; }
+
+/* Honeypot: visually hidden but present in the DOM for bots. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.message h2 { margin-top: 0; font-size: 20px; }
+.back { color: var(--accent); }
+
+footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer p { margin: 0 0 6px; }

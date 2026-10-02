@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Rezygnacja z subskrypcji{% endblock %}
+{% block content %}
+<section class="message">
+  <h2>Zrezygnować z subskrypcji?</h2>
+  <p>Twój adres zostanie <strong>trwale usunięty</strong> z naszej bazy. Tej operacji nie można cofnąć.</p>
+  <form method="post" action="/unsubscribe" class="form">
+    <input type="hidden" name="token" value="{{ token }}">
+    <button type="submit" class="danger">Tak, usuń mój adres</button>
+  </form>
+</section>
+{% endblock %}

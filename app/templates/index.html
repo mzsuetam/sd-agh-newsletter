@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="/subscribe" class="form" autocomplete="on">
+  <label for="email">Twój adres e-mail</label>
+  <input type="email" id="email" name="email" placeholder="imie.nazwisko@example.com"
+         required maxlength="254" autocomplete="email" inputmode="email">
+
+  <!-- Honeypot: hidden from humans, tempting to bots. Must stay empty. -->
+  <div class="hp" aria-hidden="true">
+    <label for="website">Nie wypełniaj tego pola</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <button type="submit">Zapisz się</button>
+  <p class="hint">
+    Wyślemy Ci wiadomość z linkiem potwierdzającym. Subskrypcja zostanie
+    aktywowana dopiero po kliknięciu tego linku.
+  </p>
+</form>
+{% endblock %}

@@ -1,9 +1,35 @@
 [project]
 name = "sd-agh-edu-pl-mailer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Scraper + newsletter for sd.agh.edu.pl/aktualnosci"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "dotenv>=0.9.9",
+    "apscheduler>=3.10.4",
+    "beautifulsoup4>=4.12.3",
+    "fastapi>=0.115.0",
+    "httpx>=0.27.2",
+    "itsdangerous>=2.2.0",
+    "jinja2>=3.1.4",
+    "lxml>=5.3.0",
+    "python-dotenv>=1.0.1",
+    "python-multipart>=0.0.12",
+    "uvicorn[standard]>=0.32.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.3",
+    "pytest-httpx>=0.32.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

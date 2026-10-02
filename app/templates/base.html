@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Aktualności Szkoły Doktorskiej AGH — newsletter{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>Aktualności Szkoły Doktorskiej AGH</h1>
+      <p class="subtitle">Nieoficjalny newsletter z wpisami ze strony
+        <a href="https://sd.agh.edu.pl/aktualnosci" rel="noopener noreferrer">sd.agh.edu.pl/aktualnosci</a>.
+      </p>
+    </header>
+    {% block content %}{% endblock %}
+    <footer>
+      <p>
+        <strong>To jest projekt prywatny</strong>, niezależny i niebędący częścią
+        systemów AGH. Nie jest oficjalnym kanałem Szkoły Doktorskiej AGH.
+      </p>
+      <p>Aby zrezygnować, użyj linku w dowolnej wiadomości, którą od nas otrzymasz.</p>
+    </footer>
+  </main>
+</body>
+</html>
