@@ -3,7 +3,9 @@ services:
     build: .
     image: sd-agh-edu-pl-mailer:latest
     ports:
-      - "127.0.0.1:40003:8000"
+      # nginx listens on the public 40003 and proxies to 127.0.0.1:8083.
+      # The app itself always listens on 8000 *inside* the container.
+      - "127.0.0.1:8083:8000"
     command:
       - uvicorn
       - app.web:app
