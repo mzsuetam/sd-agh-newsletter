@@ -1,5 +1,7 @@
 services:
   web:
+    build: .
+    image: sd-agh-edu-pl-mailer:latest
     ports:
       - "127.0.0.1:40003:8000"
     command:
@@ -10,8 +12,7 @@ services:
       - --port
       - "8000"
       - --proxy-headers
-      # Trust X-Forwarded-For from the host (nginx) and Docker subnets.
-      # Without this every visitor shares one rate-limit bucket.
+      # Trust X-Forwarded-For from nginx on the host.
       - --forwarded-allow-ips
       - "127.0.0.1,::1,172.16.0.0/12"
     env_file: .env
