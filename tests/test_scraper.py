@@ -40,7 +40,13 @@ def test_parse_detail_uses_iso_date_and_body():
     assert post.post_date == date(2026, 10, 1)
     assert post.lead == "Lead paragraph."
     assert "First body" in post.body_html
-    assert "/doktoranci/stypendia" in post.body_html
+    assert 'href="https://x/doktoranci/stypendia"' in post.body_html
+
+
+def test_parse_detail_makes_body_urls_absolute():
+    post = parse_detail(DETAIL_HTML, "https://x/post-a")
+    assert 'href="https://x/doktoranci/stypendia"' in post.body_html
+    assert 'src="https://x/uploads/photo.jpg"' in post.body_html
     # Nothing from the "Powrót" / footer region leaks in.
     assert "Footer junk" not in post.body_html
     assert "Powrót" not in post.body_html

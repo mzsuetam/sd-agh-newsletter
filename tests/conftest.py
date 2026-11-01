@@ -52,6 +52,7 @@ DETAIL_HTML = """
     <div class="text-mt">
       <p>First body <strong>paragraph</strong>.</p>
       <p><a href="/doktoranci/stypendia">A link</a></p>
+      <img src="/uploads/photo.jpg" alt="Zdjęcie">
     </div>
   </div></div>
   <div class="mt-4 text-center back-btn"><a href="/aktualnosci">

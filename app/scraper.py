@@ -244,6 +244,13 @@ def parse_detail(html: str, url: str) -> NewsPost:
         # Stop before the "Powrót" button / footer if they ever nest inside.
         for junk in node.select(".back-btn, #pageFooter"):
             junk.decompose()
+        # Relative URLs are unresolvable inside an e-mail (no base URL), which
+        # makes links unclickable there; rewrite them against the detail page.
+        for tag in node.select("a[href], img[src]"):
+            for attr in ("href", "src"):
+                raw = tag.get(attr)
+                if raw:
+                    tag[attr] = urljoin(url, str(raw))
         body_parts.append(node.decode_contents().strip())
     body_html = "\n".join(p for p in body_parts if p)
 
